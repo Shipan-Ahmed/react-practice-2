@@ -1,5 +1,7 @@
-import React from 'react';
-import Links from './links';
+import React, { useState } from 'react';
+import Link from './Link';
+import { Menu, X } from 'lucide-react';
+
 
 
 const navLinks = [
@@ -31,26 +33,25 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-    return (
-      <nav>
-        <ul className="flex">
-          {navLinks.map((data) => (
-            <Links key={data.id} data={data}></Links>
-          ))}
-        </ul>
-        {/* <ul className="flex">
-          {navLinks.map((data) => (
-            <li className="ml-4" key={data.id}>
-              <a href={data.path}>{data.name}</a>
-            </li>
-          ))}
-        </ul> */}
+    const [open, setOpen] = useState(false);
 
-        {/* <ul className='flex'>
-                <li className='ml-4'><a href='./Home'>Home</a></li>
-                <li className='ml-4'><a href='./About'>About</a></li>
-                <li className='ml-4'><a href='./Contact'>Contact</a></li>
-            </ul> */}
+    const Links = navLinks.map((data) => <Link key={data.id} data={data}></Link>);
+
+    return (
+      <nav className="flex justify-between p-4">
+        <span className="flex gap-1 " onClick={() => setOpen(!open)}>
+          {open ? (
+            <X className="md:hidden"></X>
+          ) : (
+            <Menu className="md:hidden"></Menu>
+          )}
+          <ul className='md:hidden'>{Links}</ul>
+
+          <h3>My Navbar</h3>
+        </span>
+
+        <ul className="md:flex hidden">{Links}</ul>
+        <p>Signin</p>
       </nav>
     );
 };
