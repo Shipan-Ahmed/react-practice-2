@@ -15,6 +15,7 @@
       "id": 2,
       "name": "Standard Plan",
       "price": "$35/month",
+      "popular":true,
       "features": [
         "All Basic features",
         "Group fitness classes",
