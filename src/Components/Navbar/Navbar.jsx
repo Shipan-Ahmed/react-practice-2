@@ -38,20 +38,22 @@ const Navbar = () => {
     const Links = navLinks.map((data) => <Link key={data.id} data={data}></Link>);
 
     return (
-      <nav className="flex justify-between p-4">
-        <span className="flex gap-1 " onClick={() => setOpen(!open)}>
+      <nav className="flex justify-between p-4 font-bold">
+        <span className="flex gap-1  " onClick={() => setOpen(!open)}>
           {open ? (
             <X className="md:hidden"></X>
           ) : (
             <Menu className="md:hidden"></Menu>
           )}
-          <ul className='md:hidden'>{Links}</ul>
+          <ul className={`md:hidden absolute duration-1000 left-2 text-black font-bold ${open ? 'top-10': '-top-40'}`}>
+            {Links}
+          </ul>
 
           <h3>My Navbar</h3>
         </span>
 
         <ul className="md:flex hidden">{Links}</ul>
-        <p>Signin</p>
+        <p>Sign in</p>
       </nav>
     );
 };
