@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line, LineChart, XAxis, YAxis } from 'recharts';
+import { CartesianGrid, Legend, Line, LineChart, XAxis, YAxis } from 'recharts';
 
 
 const marks = [
@@ -83,7 +83,9 @@ const ResultsChart = () => {
           <Line dataKey={"physics"} stroke="red"></Line>
           <Line dataKey={"chemistry"} stroke="green"></Line>
           <XAxis dataKey={"name"}></XAxis>
-          <YAxis></YAxis>
+            <YAxis></YAxis>
+            <Legend></Legend>
+            <CartesianGrid></CartesianGrid>
         </LineChart>
       </div>
     );
